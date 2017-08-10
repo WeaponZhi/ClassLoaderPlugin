@@ -1,1 +1,1 @@
-include ':app', ':bundle'
+include ':app', ':app.bundle'

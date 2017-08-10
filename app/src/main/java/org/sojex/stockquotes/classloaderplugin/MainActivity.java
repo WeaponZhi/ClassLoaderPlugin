@@ -1,7 +1,9 @@
 package org.sojex.stockquotes.classloaderplugin;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import net.wequick.small.Small;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -15,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String apkPath = getExternalCacheDir().getAbsolutePath()+"/bundle-debug.apk";
-        loadApk(apkPath);
+//        String apkPath = getExternalCacheDir().getAbsolutePath()+"/bundle-debug.apk";
+//        loadApk(apkPath);
     }
 
     private void loadApk(String apkPath) {
@@ -36,5 +38,16 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Small.setUp(this, new Small.OnCompleteListener() {
+            @Override
+            public void onComplete() {
+                Small.openUri("bundle",MainActivity.this);
+            }
+        });
     }
 }

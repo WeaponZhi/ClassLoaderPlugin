@@ -1,0 +1,5 @@
+int string hello 0x79020000
+int style AppTheme 0x79030000
+int color colorAccent 0x79040000
+int color colorPrimary 0x79040001
+int color colorPrimaryDark 0x79040002

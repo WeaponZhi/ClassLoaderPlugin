@@ -10,6 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app.bundle" />
+            <option value="$PROJECT_DIR$/lib.style" />
+            <option value="$PROJECT_DIR$/vendor-aar" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

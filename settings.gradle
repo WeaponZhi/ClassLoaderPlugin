@@ -1,1 +1,1 @@
-include ':app', ':app.bundle'
+include ':app', ':app.bundle', ':lib.style','vendor-aar'

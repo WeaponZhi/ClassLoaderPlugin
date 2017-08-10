@@ -24,4 +24,5 @@ task clean(type: Delete) {
 
 apply plugin: 'net.wequick.small'
 
-small{}
+small{
+}

@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app.bundle" />
             <option value="$PROJECT_DIR$/lib.style" />
+            <option value="$PROJECT_DIR$/lib.testlib" />
             <option value="$PROJECT_DIR$/vendor-aar" />
           </set>
         </option>

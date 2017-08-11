@@ -4,10 +4,14 @@
     {
       "uri": "bundle",
       "pkg": "org.sojex.stockquotes.bundle"
-    } ,
+    },
     {
       "uri": "lib.style",
       "pkg": "org.sojex.stockquotes.libstyle"
+    },
+    {
+      "uri": "lib.testlib",
+      "pkg": "com.stockboxs.stock.libtestlib"
     }
   ]
 }

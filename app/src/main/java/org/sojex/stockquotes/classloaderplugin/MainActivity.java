@@ -1,5 +1,5 @@
 package org.sojex.stockquotes.classloaderplugin;
-
+import com.stockboxs.stock.libtestlib.Util;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -49,5 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 Small.openUri("bundle",MainActivity.this);
             }
         });
+        Util.printLog(this);
     }
 }

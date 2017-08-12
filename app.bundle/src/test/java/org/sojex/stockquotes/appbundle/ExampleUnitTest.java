@@ -1,4 +1,4 @@
-package org.sojex.stockquotes.bundle;
+package org.sojex.stockquotes.appbundle;
 
 import org.junit.Test;
 

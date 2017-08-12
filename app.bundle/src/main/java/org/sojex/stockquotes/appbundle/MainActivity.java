@@ -1,4 +1,4 @@
-package org.sojex.stockquotes.bundle;
+package org.sojex.stockquotes.appbundle;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

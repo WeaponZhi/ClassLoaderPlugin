@@ -3,7 +3,7 @@
   "bundles": [
     {
       "uri": "bundle",
-      "pkg": "org.sojex.stockquotes.bundle"
+      "pkg": "org.sojex.stockquotes.appbundle"
     },
     {
       "uri": "lib.style",

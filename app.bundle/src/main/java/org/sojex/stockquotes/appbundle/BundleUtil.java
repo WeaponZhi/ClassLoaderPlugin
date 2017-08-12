@@ -1,4 +1,4 @@
-package org.sojex.stockquotes.bundle;
+package org.sojex.stockquotes.appbundle;
 
 import android.util.Log;
 
@@ -7,7 +7,6 @@ import android.util.Log;
  */
 
 public class BundleUtil {
-
     public static void printLog(){
         Log.e("Bundle","I am a class in the Bundle");
     }

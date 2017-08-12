@@ -1,4 +1,4 @@
-package org.sojex.stockquotes.bundle;
+package org.sojex.stockquotes.appbundle;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

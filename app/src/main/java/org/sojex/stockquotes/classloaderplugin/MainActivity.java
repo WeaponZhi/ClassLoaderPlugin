@@ -2,7 +2,7 @@ package org.sojex.stockquotes.classloaderplugin;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import net.wequick.small.Small;
+import org.sojex.stockquotes.classloaderplugin.view.RaiseNumberAnimTextView;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 import dalvik.system.DexClassLoader;
 
 public class MainActivity extends AppCompatActivity {
-
+private RaiseNumberAnimTextView mRaiseNumberAnimTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
 //        String apkPath = getExternalCacheDir().getAbsolutePath()+"/bundle-debug.apk";
 //        loadApk(apkPath);
+
+        mRaiseNumberAnimTextView = (RaiseNumberAnimTextView) findViewById(R.id.tv);
+        mRaiseNumberAnimTextView.setDuration(2000);
+        mRaiseNumberAnimTextView.setAnimatorText(1000);
     }
 
     private void loadApk(String apkPath) {
@@ -42,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Small.setUp(this, new Small.OnCompleteListener() {
-            @Override
-            public void onComplete() {
-                Small.openUri("bundle",MainActivity.this);
-            }
-        });
+//        Small.setUp(this, new Small.OnCompleteListener() {
+//            @Override
+//            public void onComplete() {
+//                Small.openUri("bundle",MainActivity.this);
+//            }
+//        });
     }
 }

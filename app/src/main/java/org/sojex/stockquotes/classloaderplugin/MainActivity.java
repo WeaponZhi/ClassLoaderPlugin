@@ -1,6 +1,8 @@
 package org.sojex.stockquotes.classloaderplugin;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import org.sojex.stockquotes.classloaderplugin.view.RaiseNumberAnimTextView;
 
@@ -10,7 +12,8 @@ import java.lang.reflect.Method;
 import dalvik.system.DexClassLoader;
 
 public class MainActivity extends AppCompatActivity {
-private RaiseNumberAnimTextView mRaiseNumberAnimTextView;
+    private RaiseNumberAnimTextView mRaiseNumberAnimTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,20 +22,30 @@ private RaiseNumberAnimTextView mRaiseNumberAnimTextView;
 //        String apkPath = getExternalCacheDir().getAbsolutePath()+"/bundle-debug.apk";
 //        loadApk(apkPath);
 
-        mRaiseNumberAnimTextView = (RaiseNumberAnimTextView) findViewById(R.id.tv);
-        mRaiseNumberAnimTextView.setDuration(2000);
-        mRaiseNumberAnimTextView.setAnimatorText(1000);
+//        mRaiseNumberAnimTextView = (RaiseNumberAnimTextView) findViewById(R.id.tv);
+//        mRaiseNumberAnimTextView.setDuration(2000);
+//        mRaiseNumberAnimTextView.setAnimatorText(1000);
+
+        ClassLoader classLoader = getClassLoader();
+        if (classLoader != null) {
+            Log.e("weaponzhi", "classLoader: " + classLoader.toString());
+
+            while (classLoader.getParent() != null) {
+                classLoader = classLoader.getParent();
+                Log.e("weaponzhi","classLoader: "+classLoader.toString());
+            }
+        }
     }
 
     private void loadApk(String apkPath) {
-        File optDir = getDir("opt",MODE_PRIVATE);
+        File optDir = getDir("opt", MODE_PRIVATE);
         //初始化 classLoader
         DexClassLoader classLoader = new DexClassLoader(apkPath,
-                optDir.getAbsolutePath(),null,this.getClassLoader());
+                optDir.getAbsolutePath(), null, this.getClassLoader());
 
         try {
             Class cls = classLoader.loadClass("org.sojex.stockquotes.bundle.BundleUtil");
-            if (cls!=null){
+            if (cls != null) {
                 Object instance = cls.newInstance();
                 Method method = cls.getMethod("printLog");
                 method.invoke(instance);

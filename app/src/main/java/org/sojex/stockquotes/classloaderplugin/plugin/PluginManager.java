@@ -11,7 +11,10 @@ import java.util.HashMap;
 import dalvik.system.DexClassLoader;
 
 /**
- * Created by admin on 2017/8/9.
+ * PluginManager 插件管理器 
+ * author:张冠之
+ * time: 2017/8/26 下午7:51 
+ * e-mail: guanzhi.zhang@sojex.cn
  */
 
 public class PluginManager {

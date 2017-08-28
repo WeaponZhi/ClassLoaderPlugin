@@ -18,14 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        String apkPath = getExternalCacheDir().getAbsolutePath()+"/bundle-debug.apk";
-//        loadApk(apkPath);
+        //APK 存放的位置
+        String apkPath = getExternalCacheDir().getAbsolutePath()+"/bundle-debug.apk";
+        loadApk(apkPath);
 
 //        mRaiseNumberAnimTextView = (RaiseNumberAnimTextView) findViewById(R.id.tv);
 //        mRaiseNumberAnimTextView.setDuration(2000);
 //        mRaiseNumberAnimTextView.setAnimatorText(1000);
-
+        //Android 应用最少需要两个 ClassLoader
         ClassLoader classLoader = getClassLoader();
         if (classLoader != null) {
             Log.e("weaponzhi", "classLoader: " + classLoader.toString());
@@ -38,12 +38,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadApk(String apkPath) {
+        //应用内部目录，MODE_PRIVATE 代表只有自己应用可以访问这个路径。
         File optDir = getDir("opt", MODE_PRIVATE);
-        //初始化 classLoader
+        //初始化 classLoader，通过 DexClassLoader 来加载指定目录下的插件中的类
         DexClassLoader classLoader = new DexClassLoader(apkPath,
                 optDir.getAbsolutePath(), null, this.getClassLoader());
 
         try {
+            //获取指定路径插件的 class 字节码文件
             Class cls = classLoader.loadClass("org.sojex.stockquotes.bundle.BundleUtil");
             if (cls != null) {
                 Object instance = cls.newInstance();
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        //Small 插件跳转
 //        Small.setUp(this, new Small.OnCompleteListener() {
 //            @Override
 //            public void onComplete() {
